@@ -58,10 +58,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'admin'], function() {
 
         
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    }); 
+    // Route::get('/dashboard', function () {
+    //     return view('admin.dashboard');
+    // }); 
 
+    Route::get('/dashboard','App\Http\Controllers\MyAdmin\BookRequestController@requestBook');
     Route::get('/register-roles','App\Http\Controllers\MyAdmin\DashboardController@registered');
     Route::get('/role-edit/{id}', 'App\Http\Controllers\MyAdmin\DashboardController@registerEdit');
     Route::put('/role-register-update/{id}', 'App\Http\Controllers\MyAdmin\DashboardController@registerUpdate');
@@ -72,6 +73,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/edit-book/{id}', 'App\Http\Controllers\MyAdmin\BookController@editBook');
     Route::put('/update-book/{id}','App\Http\Controllers\MyAdmin\BookController@updateBook');
     Route::delete('/delete-book/{id}', 'App\Http\Controllers\MyAdmin\BookController@deleteBook');
+
 
 
     Route::get('/faculty','App\Http\Controllers\MyAdmin\FacultyController@indexFaculty');
@@ -87,15 +89,17 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('/update-student/{id}','App\Http\Controllers\MyAdmin\StudentController@updateStudent');
     Route::delete('/delete-student/{id}', 'App\Http\Controllers\MyAdmin\StudentController@deleteStudent');
 
+    Route::get('/borrow-book','App\Http\Controllers\MyAdmin\BookController@borrowBook');
+
     });
 
     Route::group(['middleware' => 'student'], function() {
 
-        Route::get('/home', function () {
-            return view('home');
+        Route::get('/user_home', function () {
+            return view('user_home');
         });  
 
-        Route::get('/home','App\Http\Controllers\Request\RequestBookController@indexBook');
+        Route::get('/user_home','App\Http\Controllers\Request\RequestBookController@indexBook');
         Route::get('/request-book/{id}', 'App\Http\Controllers\Request\RequestBookController@requestBook');
         Route::post('/borrow-books', 'App\Http\Controllers\Request\RequestBookController@borrowBook');
     });

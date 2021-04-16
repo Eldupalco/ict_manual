@@ -12,7 +12,7 @@ class RequestBookController extends Controller
 {
     public function indexBook(){
         $books = Book::all();
-        return view('home')->with('books',$books);
+        return view('user_home')->with('books',$books);
     }
 
     public function requestBook($id){
@@ -32,7 +32,7 @@ class RequestBookController extends Controller
         $borrowRequest->borrow_status = $request->input('borrow_status');
         $borrowRequest->return_date = $request->input('return_date');
         $borrowRequest->save();
-        return redirect('/home');
+        return redirect('/user_home');
 
     }
 }

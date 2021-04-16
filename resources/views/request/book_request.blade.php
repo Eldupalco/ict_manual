@@ -17,6 +17,7 @@
                 <div class="card-body">
                     <form action="/borrow-books" method="POST">
                         <input type="hidden" name="book_id" value="{{ $id }}">
+                        <input type="hidden" name="borrower_id" value="{{ Auth::user()->user_id }}">
                         {{ csrf_field() }}
                         
 

@@ -39,7 +39,7 @@ class LoginController extends Controller
             
         }elseif(Auth::user()->userType == 'student'){
 
-            return 'home';
+            return 'user_home';
             
         }else{
 
