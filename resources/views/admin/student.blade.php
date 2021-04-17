@@ -135,7 +135,7 @@
 
                     <td class="">
                         <div class="flex d-flex float-right">
-                            <a href="{{url('edit-faculty/'.$data->id)}}" class="btn btn-muted btn-md m-1"> <i class="fas fa-user-circle"></i></a>
+                            <a href="{{url('create-account/'.$data->id)}}" class="btn btn-muted btn-md m-1"> <i class="fas fa-user-circle"></i></a>
                             <a href="{{url('edit-student/'.$data->id)}}" class="btn btn-success btn-md m-1"> <i class="fas fa-edit"></i></a>
                       
 

@@ -15,6 +15,13 @@ class RequestBookController extends Controller
         return view('user_home')->with('books',$books);
     }
 
+    public function requestBorrowedBook($user_id){
+        $bookRequest = BookRequest::with(['book', 'user'])->where('borrower_id', '=', $user_id)->get();
+        return view('request.borrowed_book')->with('bookRequest', $bookRequest);
+    }
+
+    
+
     public function requestBook($id){
         $book = Book::findOrFail($id);
         return view('request.book_request', compact('book', 'id'));
@@ -33,6 +40,5 @@ class RequestBookController extends Controller
         $borrowRequest->return_date = $request->input('return_date');
         $borrowRequest->save();
         return redirect('/user_home');
-
     }
 }
