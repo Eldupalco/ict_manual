@@ -80,18 +80,20 @@
         <div class="table-responsive">
           <table class="table table-striped" >
             <thead class=" text-primary">
-              <th>Author Name</th>
-              <th>Book Name</th>
-              <th>Book Discription</th>
-              <th>Stock</th>
+              <tr class="m-0">
+                <th >Author Name</th>
+                <th >Book Name</th>
+                <th >Status</th>
+                <th>Stock</th>
+              </tr>
             </thead>
             <tbody>
                 @foreach ($books as $data )
 
-                <tr>
+                <tr  >
                     <td>{{$data->author_name}}</td>
                     <td>{{$data->book_name}}</td>
-                    <td>{{$data->book_description}}</td>
+                    <td>{{$data->book_status}}</td>
                     <td>{{$data->book_quantity}}</td>
 
                     <td class="">

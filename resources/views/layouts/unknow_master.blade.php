@@ -42,28 +42,22 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{ 'dashboard' == request()->path() ? 'active' : ''}}">
-            <a href="/dashboard">
+          <li class="{{ 'user_home' == request()->path() ? 'active' : ''}}">
+            <a href="/user_home">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
         
 
-          <li class="{{ 'book' == request()->path() ? 'active' : ''}}">
-            <a href="/book">
+          <li class="{{ 'borrowed-book/'.Auth::user()->user_id == request()->path() ? 'active' : ''}}">
+            <a href="/borrowed-book/{{ Auth::user()->user_id}}">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Book</p>
+              <p>My Book</p>
             </a>
           </li>
 
         
-          <li class="{{ 'register-roles' == request()->path() ? 'active' : ''}}">
-            <a href="/register-roles">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
